@@ -1,0 +1,143 @@
+tupla= linha da tabela
+atributo=coluna da tabela
+
+use cadastro;
+
+create database cadastro - criar
+default character set utf8 - setar idioma
+default collate utf8_general_ci;
+
+create table if not exists ();
+create table login (
+id int NOT NULL AUTO_INCREMENT,
+.
+.
+.
+PRIMARY KEY (id)
+)default charset= utf8;
+
+show databases;
+status (ver qual banco de dados está sendo utilizado)
+show tables;
+describe/desc nomedatabela;
+exit;
+drop database nomedobd;
+
+insert into nomedatabela
+(,);
+values
+('','');
+
+insert into nomedatabela values [se a ordem for exatamente a do banco de dados nao precisa listar novamente]
+('','') [pode insierior varios dados, separando os parentesis por , e o ultimo por ;]
+
+select * from nomedatabela;
+
+alter table nomedatabela
+add column nomedatabela;
+drop column nomedatabela;
+
+p adicionar depois de uma coluna 
+add column nomedatabela after nomedatabela;
+
+p adicionar no inicio da tabela
+alter table nomedatabela
+add column nomedatabela first
+
+p modificar o tipo de dado da tabela
+alter table nomedatabela
+modify column
+
+apagar a tabela
+drop table nomedatabela ou banco de dados
+
+p renomear a coluna
+alter table nomedatabela
+change column nomeantigo nome novo;
+
+renomear tabela
+alter table nomedatabela
+rename to nomenovo;
+
+modificar uma linha
+update nomedatabela
+set nomedatabela = 'novonome' [pode ser mais de uma]
+where idnome='';
+
+UPDATE nomedatabela 
+set nome do parametro =''; (pode redefinir mais de um ao mesmo tempo ,asta separar por virgula)
+where id da linha/ou outro parametro ='';
+limit=; limitar a ação do comando
+
+DELETE from nomedatabela
+where id/parametro='';
+limit=;
+
+desabilitar safe update caso nao esteja apagando tudo que quer
+
+TRUNCATE table nomedatabela ou TRUNCATE nomedatabela (remover todos os registros da tabela)
+
+backup de um banco de dados é chamado de DUMP
+gerenciando copias de segurança - reassistir
+
+select * from nome da tabela
+* todas as colunas
+order by nome/nacionalidade; (nome desc/asc (ou n colocar nd))
+
+select nomedascolunas separadas por virgula (filtrar)
+where nomeacoluna-linha </>/<=/>=(operadores) parametro desejado
+
+where nomeacoluna-linha BETWEE/IN/AND/OR/LIKE 'parametro desejado'
+like 'qualquercoisa%' %= (nada, qualquer coisa)seguido de qualquer coisa, pode estar antes, depois ou entre o parametro
+not like='' onde nao tem o parametro desejado
+
+like 'qlqrcoisa_' = _ obrigatoriamente tem algum caractere
+
+select count (*)nomedacoluna from nomedatabela;
+count = retorna apenas a quantidade
+
+select DISTINCT nomedacoluna from nomedatabela
+distinct = varias ocorrencias nao se repetem
+
+select max/min/sum/avg (nomedacoluna) from nomedatabela;
+max= o maior numero
+min= menor numero
+se quiser saber mais especifico posso pedir o nome de outra coluna antes seprado por virgula
+sum=soma do total 
+avg=média simples
+
+select nomedacoluna from nomedatabela;
+group by parametro
+group by=agrupado por
+
+select nomedacoluna, count(parametro) from nomedatabela;
+group by parametro
+having paramentro com contador
+having = somente quem tem esse parametro, so pode trabalhar com o campo q foi agrupado
+
+chave estrangeira= adicionar na tabela q se relaciona anteriormente / tipo da id da tabela. nome n precisa ser o msm
+
+add foreign key(nomedachavestrangeira)
+preferences nomedatabela(nomeid)
+mul=chave multipla/estrangeira
+
+INNODB criação de tabelas com caracteristiras especifias
+extradb = nova
+myisam
+
+ACID = 4 boas regras de uma transação
+atomocidade= n pode ser dividida em subtarefas/ so faz tudo n faz pela metade
+consistencia= n pode ter falha 
+isolamento= coisas paralelas acontecendo serm afetar a outra
+durabilidade= n pode perder dados do nd
+
+junções (um pra muitos)
+join on (usar com on)
+clausula on (relaçoes) nomedacoluna.chaveprimaira = nomedacoluna.chavestrangeira
+
+outer join = conceito dos inner join q nao tem relaçao com nenhum dado de outra tabela
+left/right ou a tabela da esq ou dir como preferencial
+left/right outer join ou so left join (funciona como outer)
+
+muito pra muitos-> um pra muitos
+criar uma tabela no meio q se relacione um p muitos e um p muitos
